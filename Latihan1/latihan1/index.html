@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Note</title>
+
+    <!-- Myfont -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://unpkg.com/feather-icons"></script>
+
+</head>
+
+<body cz-shortcut-listen="true">
+    <div class="toogle-active">Name</div>
+    <!-- <div class="container">
+            <h1>my notes</h1>
+            <button class="btn"><i data-feather="edit-2" class="pencil"></i>Add Notes</button>
+            <div class="notes-container">
+            <p contenteditable="true" class="input-box">
+                <img src="" alt="">
+            </p>
+            </div>
+        </div> -->
+
+    <script>
+        const body = document.querySelector("body"),
+            toogle = document.querySelector(".toogle");
+
+        let getMode = localStorage.getItem("mode");
+        if (getMode && getMode === "dark") {
+            body.classList.add("dark")
+            toogle.classList.add("active");
+        }
+
+        toogle.addEventListener("click", () => {
+            body.classList.toggle("dark")
+            if (!body.classList.contains("dark")) {
+                return localStorage.setItem("mode", "light");
+            }
+            localStorage.setItem("mode", "dark");
+        });
+
+        toogle.addEventListener("click", () => toogle.classList.toogle("active"));
+    </script>
+
+    <!-- <script>
+            feather.replace();
+        </script>
+        <script src="script.js"></script> -->
+</body>
+
+</html>
